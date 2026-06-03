@@ -157,7 +157,7 @@ button {
 }
 
 /* =======================
-   GALLERY (FIXED - NO CROPPING + CONTROLLED SIZE)
+   GALLERY (FIXED PROPERLY)
 ======================= */
 
 .gallery {
@@ -170,34 +170,36 @@ button {
     margin-bottom: 40px;
 }
 
+/* Pinterest-style masonry layout */
 .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 25px;
+    column-count: 3;
+    column-gap: 20px;
     max-width: 1000px;
     margin: auto;
 }
 
-/* ✅ FIXED IMAGE HANDLING (NO CROPPING, NO OVERSIZE) */
+/* FIXED IMAGE STYLE */
 .gallery-grid img {
     width: 100%;
-    max-width: 320px;
-    height: 240px;
+    height: auto;
 
-    object-fit: contain;     /* prevents cropping */
     display: block;
-    margin: 0 auto;
-
-    background: rgba(255,255,255,0.10);
-    padding: 10px;
+    margin-bottom: 20px;
 
     border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    transition: 0.4s ease;
+    padding: 8px;
+
+    background: rgba(255,255,255,0.10);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+
+    break-inside: avoid;
 }
 
 .gallery-grid img:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.35);
 }
 
 /* =======================
@@ -324,8 +326,7 @@ footer {
         font-size: 2rem;
     }
 
-    .gallery-grid img {
-        height: 220px;
-        max-width: 90%;
+    .gallery-grid {
+        column-count: 1;
     }
 }
