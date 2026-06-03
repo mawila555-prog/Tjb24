@@ -147,16 +147,16 @@
 
     </section>
 
-    <!-- MEMORY GALLERY -->
+    <!-- ROMANTIC MEMORY FILM STRIP -->
     <section class="gallery">
 
-        <h2>📸 More Special Memories With you</h2>
+        <h2>📸 Our Beautiful Memories</h2>
 
-        <div class="gallery-grid">
+        <div class="film-strip">
 
-            <img src="pic4.jpeg" alt="Memory 4">
-            <img src="pic5.jpeg" alt="Memory 5">
-            <img src="pic6.jpg" alt="Memory 6">
+            <img src="pic4.jpeg" alt="Memory 4" onclick="openPreview(this.src)">
+            <img src="pic5.jpeg" alt="Memory 5" onclick="openPreview(this.src)">
+            <img src="pic6.jpg" alt="Memory 6" onclick="openPreview(this.src)">
 
         </div>
 
@@ -230,6 +230,12 @@
     <footer>
         <p>Made with ❤️ especially for you.</p>
     </footer>
+
+    <!-- LIGHTBOX PREVIEW -->
+    <div id="lightbox" class="lightbox" onclick="closePreview()">
+        <span class="close-btn">&times;</span>
+        <img id="lightbox-img" src="" alt="Preview">
+    </div>
 
     <!-- Confetti -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
