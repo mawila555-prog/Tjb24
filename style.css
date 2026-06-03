@@ -1,4 +1,4 @@
- /* =======================
+/* =======================
    RESET
 ======================= */
 
@@ -69,49 +69,6 @@ body {
     }
 }
 
-.typing-text {
-    font-size: 1.2rem;
-    margin: 20px auto;
-    max-width: 700px;
-    min-height: 60px;
-}
-
-.hero-message {
-    font-size: 1.1rem;
-    max-width: 700px;
-    margin: 20px auto;
-}
-
-/* =======================
-   BUTTONS
-======================= */
-
-button {
-    border: none;
-    cursor: pointer;
-    transition: 0.3s ease;
-}
-
-#playBtn,
-#startBtn,
-#surpriseBtn {
-
-    background: linear-gradient(45deg, #ff4d88, #ff2e63);
-    color: white;
-    padding: 14px 30px;
-    border-radius: 40px;
-    font-size: 1rem;
-    font-weight: 600;
-    margin: 10px;
-    box-shadow: 0 10px 25px rgba(255, 50, 120, 0.3);
-}
-
-#playBtn:hover,
-#startBtn:hover,
-#surpriseBtn:hover {
-    transform: scale(1.08);
-}
-
 /* =======================
    JOURNEY SECTIONS
 ======================= */
@@ -152,12 +109,8 @@ button {
     border-radius: 25px;
 }
 
-.text h2 {
-    margin-bottom: 15px;
-}
-
 /* =======================
-   GALLERY (ROMANTIC FILM STRIP)
+   GALLERY (CENTERED FIX)
 ======================= */
 
 .gallery {
@@ -170,15 +123,21 @@ button {
     margin-bottom: 40px;
 }
 
-/* Film strip container */
+/* ✅ FIX: Center the film strip */
 .film-strip {
     display: flex;
+    justify-content: center;   /* ⭐ KEY FIX */
+    align-items: center;
     gap: 25px;
+
     overflow-x: auto;
     padding: 40px 10px;
 
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
+
+    margin: 0 auto;            /* ⭐ centers container */
+    max-width: 100%;
 }
 
 /* hide scrollbar */
@@ -186,7 +145,7 @@ button {
     display: none;
 }
 
-/* images in film strip */
+/* images */
 .film-strip img {
     height: 340px;
     width: auto;
@@ -240,16 +199,6 @@ button {
     padding: 120px 10%;
 }
 
-.final h2 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
-
-.final p {
-    max-width: 800px;
-    margin: 15px auto;
-}
-
 /* Surprise message */
 #surpriseMessage {
     margin-top: 30px;
@@ -260,7 +209,7 @@ button {
 }
 
 /* =======================
-   LIGHTBOX (FULL IMAGE PREVIEW)
+   LIGHTBOX
 ======================= */
 
 .lightbox {
@@ -284,9 +233,7 @@ button {
 .lightbox img {
     max-width: 92%;
     max-height: 92%;
-
     border-radius: 20px;
-
     box-shadow: 0 25px 70px rgba(0,0,0,0.6);
 }
 
@@ -294,11 +241,9 @@ button {
     position: absolute;
     top: 20px;
     right: 30px;
-
     font-size: 42px;
     color: white;
     cursor: pointer;
-
     font-weight: bold;
 }
 
@@ -328,31 +273,6 @@ button {
 }
 
 /* =======================
-   FADE ANIMATION
-======================= */
-
-.fade-in {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 1s ease;
-}
-
-.fade-in.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* =======================
-   FOOTER
-======================= */
-
-footer {
-    text-align: center;
-    padding: 30px;
-    background: rgba(0,0,0,0.2);
-}
-
-/* =======================
    MOBILE FIX
 ======================= */
 
@@ -367,17 +287,9 @@ footer {
         text-align: center;
     }
 
-    .text {
-        width: 100%;
-    }
-
     .content img {
         max-width: 90%;
         height: auto;
-    }
-
-    .gallery h2 {
-        font-size: 2rem;
     }
 
     .film-strip img {
