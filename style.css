@@ -157,7 +157,7 @@ button {
 }
 
 /* =======================
-   GALLERY (FIXED - NO CROPPING)
+   GALLERY (FIXED - NO CROPPING + CONTROLLED SIZE)
 ======================= */
 
 .gallery {
@@ -173,21 +173,27 @@ button {
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+    gap: 25px;
+    max-width: 1000px;
+    margin: auto;
 }
 
-/* ✅ FIX: No more aggressive cropping */
+/* ✅ FIXED IMAGE HANDLING (NO CROPPING, NO OVERSIZE) */
 .gallery-grid img {
     width: 100%;
-    height: 260px;
+    max-width: 320px;
+    height: 240px;
 
-    object-fit: contain;   /* FIXED */
-    background: rgba(255,255,255,0.08);
-    padding: 8px;
+    object-fit: contain;     /* prevents cropping */
+    display: block;
+    margin: 0 auto;
+
+    background: rgba(255,255,255,0.10);
+    padding: 10px;
 
     border-radius: 20px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    transition: 0.4s;
+    transition: 0.4s ease;
 }
 
 .gallery-grid img:hover {
@@ -316,5 +322,10 @@ footer {
 
     .gallery h2 {
         font-size: 2rem;
+    }
+
+    .gallery-grid img {
+        height: 220px;
+        max-width: 90%;
     }
 }
