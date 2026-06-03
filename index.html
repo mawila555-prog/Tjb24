@@ -1,136 +1,262 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Happy Birthday ❤️</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>❤️ Happy Birthday My Love ❤️</title>
+
     <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<!-- MUSIC -->
+    <!-- Floating Hearts Background -->
+    <div class="floating-hearts"></div>
 
-<audio id="bgMusic" loop>
-    <source src="music/our-song.mp3" type="audio/mp3">
-</audio>
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="our-song.mp3" type="audio/mpeg">
+    </audio>
 
-<!-- HERO SECTION -->
+    <!-- HERO -->
+    <section class="hero">
 
-<section class="hero">
-    <div class="hero-content">
-        <h1>❤️ Happy Birthday My Love ❤️</h1>
-        <h2>A journey through our memories</h2>
-        <p>Every moment with you is a blessing I will always cherish.</p>
+        <div class="hero-content">
 
-```
-    <button id="startBtn">Start Our Journey ❤️</button>
-</div>
-```
+            <h1 class="main-title">
+                🎂 Happy Birthday My Love ❤️
+            </h1>
 
-</section>
-
-<!-- JOURNEY 1 -->
-
-<section class="journey" id="journey1">
-    <div class="content">
-        <img src="pic1.jpeg" alt="Journey 1 Memory">
-
-```
-    <div class="text">
-        <h2>✨ The Day You Became My Blessing</h2>
-        <p>
-            Meeting you has been one of the greatest blessings of my life. 
-            From the very beginning, you brought light, peace, and joy into my world.
-            Life felt different after you — softer, happier, and more meaningful.
-        </p>
-        <p>
-            I thank God every day for placing you in my life. ❤️
-        </p>
-    </div>
-</div>
-```
-
-</section>
-
-<!-- JOURNEY 2 -->
-
-<section class="journey" id="journey2">
-    <div class="content reverse">
-        <div class="text">
-            <h2>💫 Still Breathtaking</h2>
-            <p>
-                Even now, your eyes still amaze me like the very first time I saw them.
-                They carry warmth, beauty, and a calm that I can never get tired of.
+            <p class="typing-text">
+                Every moment with you is my favorite memory.
             </p>
-            <p>
-                You still make me smile without even trying, and that is something I will always be grateful for. ❤️
+
+            <div class="music-player">
+                <button id="playBtn" class="music-btn">
+                    ▶ Play Our Song
+                </button>
+            </div>
+
+            <p class="hero-message">
+                Today isn't just your birthday...
+                it's a celebration of the beautiful soul who makes my life brighter every day.
             </p>
+
+            <button id="startBtn" onclick="document.getElementById('journey1').scrollIntoView({behavior:'smooth'})">
+                Begin Our Journey ❤️
+            </button>
+
         </div>
 
-```
-    <img src="pic2.jpeg" alt="Journey 2 Memory">
-</div>
-```
+    </section>
 
-</section>
+    <!-- JOURNEY 1 -->
+    <section class="journey fade-in" id="journey1">
 
-<!-- JOURNEY 3 -->
+        <div class="content">
 
-<section class="journey" id="journey3">
-    <div class="content">
-        <img src="pic3.jpeg" alt="Journey 3 Memory">
+            <img src="pic1.jpeg" alt="Memory One">
 
-```
-    <div class="text">
-        <h2>😂 My Favorite Person</h2>
+            <div class="text">
+
+                <h2>✨ The Day You Became My Blessing</h2>
+
+                <p>
+                    Meeting you changed my world in ways I never expected.
+                    You brought warmth where there was uncertainty,
+                    happiness where there was stress,
+                    and love where there was emptiness.
+                </p>
+
+                <p>
+                    Every day since then has been brighter because of you.
+                </p>
+
+                <p>
+                    Thank you for being one of God's greatest blessings in my life. ❤️
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- JOURNEY 2 -->
+    <section class="journey fade-in">
+
+        <div class="content reverse">
+
+            <div class="text">
+
+                <h2>💫 Still Breathtaking</h2>
+
+                <p>
+                    Even now, after all our memories together,
+                    you still manage to take my breath away.
+                </p>
+
+                <p>
+                    Your smile can make a difficult day feel easy,
+                    and your presence makes every place feel like home.
+                </p>
+
+                <p>
+                    I still catch myself looking at you and thinking,
+                    "How did I get so lucky?" ❤️
+                </p>
+
+            </div>
+
+            <img src="pic2.jpeg" alt="Memory Two">
+
+        </div>
+
+    </section>
+
+    <!-- JOURNEY 3 -->
+    <section class="journey fade-in">
+
+        <div class="content">
+
+            <img src="pic3.jpeg" alt="Memory Three">
+
+            <div class="text">
+
+                <h2>😂 My Favorite Person</h2>
+
+                <p>
+                    One of the things I love most is that I can be completely myself with you.
+                </p>
+
+                <p>
+                    We laugh together, dream together,
+                    support each other, and create memories that I'll cherish forever.
+                </p>
+
+                <p>
+                    You're not only the love of my life —
+                    you're also my best friend. ❤️
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- MEMORY GALLERY -->
+    <section class="gallery">
+
+        <h2>📸 Our Favorite Memories</h2>
+
+        <div class="gallery-grid">
+
+            <img src="pic1.jpeg" alt="">
+            <img src="pic2.jpeg" alt="">
+            <img src="pic3.jpeg" alt="">
+
+        </div>
+
+    </section>
+
+    <!-- LOVE NOTES -->
+    <section class="quotes">
+
+        <h2>💌 Things I Want You To Remember</h2>
+
+        <div class="quote-box">
+
+            <p>
+                "You are my today, my tomorrow, and every beautiful moment in between."
+            </p>
+
+        </div>
+
+        <div class="quote-box">
+
+            <p>
+                "No matter how many birthdays pass, you'll always be my favorite person."
+            </p>
+
+        </div>
+
+        <div class="quote-box">
+
+            <p>
+                "The best chapter of my life began when you became part of it."
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- FINAL MESSAGE -->
+    <section class="final">
+
+        <h2>💖 Happy Birthday Beautiful 💖</h2>
+
         <p>
-            I love that I can be completely myself with you — goofy, silly, and real.
+            Today I celebrate you.
+            Your kindness, your strength, your beautiful heart,
+            and every little thing that makes you who you are.
         </p>
+
         <p>
-            I thank God for blessing me with a partner who is also my best friend.
-            Someone I can laugh with, grow with, and enjoy life with fully.
+            Thank you for every smile,
+            every laugh,
+            every memory,
+            and every moment we've shared together.
         </p>
+
         <p>
-            Life is simply better with you in it. ❤️
+            My wish for you is a year filled with happiness,
+            success, peace, and countless reasons to smile.
         </p>
-    </div>
-</div>
-```
 
-</section>
+        <button id="surpriseBtn">
+            Open Your Birthday Gift 🎁
+        </button>
 
-<!-- FINAL MESSAGE -->
+        <div id="surpriseMessage" class="hidden">
 
-<section class="final">
-    <h2>💖 Our Story Is Just Beginning</h2>
+            <h3>❤️ Forever & Always ❤️</h3>
 
-```
-<p>
-    These are only a few of the memories we’ve created together.
-    There are still so many more waiting for us.
-</p>
+            <p>
+                No matter where life takes us,
+                I will always be grateful for you.
+            </p>
 
-<p>
-    I look forward to growing with you, learning with you, 
-    building with you, and creating a future full of love, joy, and purpose.
-</p>
+            <p>
+                Thank you for being my happiness,
+                my comfort,
+                and my favorite person.
+            </p>
 
-<p>
-    May God continue to bless you with many more beautiful years ahead. ❤️
-</p>
+            <p>
+                Happy Birthday, my love.
+                I love you more than words can ever express. ❤️
+            </p>
 
-<button id="surpriseBtn">One More Surprise 🎁</button>
+        </div>
 
-<div id="surpriseMessage" class="hidden">
-    <h3>❤️ I Love You ❤️</h3>
-    <p>No matter where life takes us, I’ll always be grateful for you.</p>
-</div>
-```
+    </section>
 
-</section>
+    <!-- Footer -->
+    <footer>
 
-<script src="script.js"></script>
+        <p>
+            Made with ❤️ especially for you.
+        </p>
+
+    </footer>
+
+    <!-- Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
