@@ -1,23 +1,125 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday ❤️</title>
-    <link rel="stylesheet" href="style.css">
+
+```
+<link rel="stylesheet" href="style.css">
+```
+
 </head>
 <body>
 
+<audio id="bgMusic" loop>
+    <source src="music/song.mp3" type="audio/mpeg">
+</audio>
+
 <section class="hero">
-    <h1> ❤️ Happy Birthday ❤️</h1>
-    <h2> My Love </h2>
+    <h1>❤️ Happy Birthday ❤️</h1>
+    <h2>My Love</h2>
+
+```
+<p>A journey through some of our favourite memories.</p>
+
+<button id="startBtn">Start Our Journey ❤️</button>
+```
+
+</section>
+
+<section class="journey">
+    <div class="memory-card">
+        <img src="images/pic1.jpg" alt="Memory 1">
+
+```
+    <h2>The Best Blessing</h2>
 
     <p>
-        A journey through our favorite memories.
+        Meeting you has been one of the greatest blessings God has ever placed in my life.
+        Before you, I never imagined that one person could bring so much joy, peace,
+        laughter and purpose into my world.
+
+        Every day with you feels like a gift and every memory we create becomes something
+        I treasure deeply. Thank you for choosing me, believing in me and walking this
+        beautiful journey alongside me.
+
+        You truly are one of God's greatest gifts to my life. ❤️
+    </p>
+</div>
+
+<div class="memory-card">
+    <img src="images/pic2.jpg" alt="Memory 2">
+
+    <h2>Still Breathtaking</h2>
+
+    <p>
+        Even after all this time, your eyes still leave me speechless.
+
+        There is something about the way they shine when you smile and the comfort
+        they bring that captures my heart every single day.
+
+        You still make me smile for absolutely no reason and somehow you continue
+        to make me fall for you over and over again.
+
+        You are beautiful inside and out. ❤️
+    </p>
+</div>
+
+<div class="memory-card">
+    <img src="images/pic3.jpg" alt="Memory 3">
+
+    <h2>My Favourite Person</h2>
+
+    <p>
+        One of my favourite things about us is that I can be completely myself around you.
+
+        Thank you for being the person I can laugh with, be goofy with, dream with,
+        pray with and create unforgettable memories with.
+
+        I thank God for blessing me with a partner who is not only beautiful and loving,
+        but also my best friend.
+
+        Life is simply better because I get to share it with you. ❤️
+    </p>
+</div>
+
+<div class="memory-card final">
+    <h2>The Best Is Yet To Come</h2>
+
+    <p>
+        These are only a few of the countless memories we have created together.
+
+        There are so many moments that could never fit on one page because every day
+        with you adds something special to our story.
+
+        I look forward to creating many more memories with you, learning together,
+        growing together, supporting each other through every season and building
+        a future that honours God.
+
+        My prayer is that God blesses you abundantly in the year ahead with joy,
+        peace, strength, good health and success.
+
+        Happy Birthday my love ❤️
+
+        Here's to many more adventures together.
     </p>
 
-    <button id="startBtn">
-        Start Our Story
+    <button id="surpriseBtn">
+        One More Thing ❤️
     </button>
+
+    <div id="secretMessage" class="hidden">
+        No matter where life takes us, I will always be grateful that God brought
+        you into my life. ❤️
+    </div>
+</div>
+```
+
 </section>
+
+<div id="hearts-container"></div>
 
 <script src="script.js"></script>
 
