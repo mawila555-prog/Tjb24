@@ -1,244 +1,182 @@
 // ======================
-// MUSIC PLAYER
+// WAIT FOR PAGE TO LOAD
 // ======================
 
-const music = document.getElementById("bgMusic");
-const playBtn = document.getElementById("playBtn");
+document.addEventListener("DOMContentLoaded", () => {
 
-if (playBtn && music) {
+    // ======================
+    // MUSIC PLAYER FIXED
+    // ======================
 
-```
-playBtn.addEventListener("click", () => {
+    const music = document.getElementById("bgMusic");
+    const playBtn = document.getElementById("playBtn");
 
-    if (music.paused) {
+    if (music && playBtn) {
 
-        music.play();
+        playBtn.addEventListener("click", async () => {
 
-        playBtn.innerHTML = "⏸ Pause Our Song";
-        playBtn.classList.add("playing");
+            try {
 
-    } else {
+                if (music.paused) {
 
-        music.pause();
+                    await music.play();
+                    playBtn.textContent = "⏸ Pause Our Song ❤️";
 
-        playBtn.innerHTML = "▶ Play Our Song";
-        playBtn.classList.remove("playing");
+                } else {
 
-    }
+                    music.pause();
+                    playBtn.textContent = "▶ Play Our Song ❤️";
 
-});
-```
+                }
 
-}
+            } catch (err) {
 
-// ======================
-// FADE-IN ANIMATION
-// ======================
+                console.log("Music error:", err);
+                alert("Tap again or check if 'our-song.mp3' is uploaded correctly.");
 
-const fadeElements = document.querySelectorAll(".fade-in");
+            }
 
-const observer = new IntersectionObserver(
-
-```
-(entries) => {
-
-    entries.forEach((entry) => {
-
-        if (entry.isIntersecting) {
-
-            entry.target.classList.add("show");
-
-        }
-
-    });
-
-},
-
-{
-    threshold: 0.2
-}
-```
-
-);
-
-fadeElements.forEach((el) => observer.observe(el));
-
-// ======================
-// SURPRISE BUTTON
-// ======================
-
-const surpriseBtn = document.getElementById("surpriseBtn");
-const surpriseMessage = document.getElementById("surpriseMessage");
-
-if (surpriseBtn) {
-
-```
-surpriseBtn.addEventListener("click", () => {
-
-    surpriseMessage.classList.remove("hidden");
-
-    surpriseMessage.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-    });
-
-    if (typeof confetti !== "undefined") {
-
-        confetti({
-            particleCount: 250,
-            spread: 180,
-            origin: { y: 0.6 }
         });
 
     }
 
-});
-```
+    // ======================
+    // SMOOTH SCROLL BUTTON
+    // ======================
 
-}
+    const startBtn = document.getElementById("startBtn");
 
-// ======================
-// FLOATING HEARTS
-// ======================
+    if (startBtn) {
 
-function createHeart() {
+        startBtn.addEventListener("click", () => {
 
-```
-const heart = document.createElement("div");
+            const section = document.getElementById("journey1");
 
-heart.innerHTML = "❤️";
-heart.classList.add("heart");
+            if (section) {
 
-heart.style.left = Math.random() * 100 + "vw";
+                section.scrollIntoView({
+                    behavior: "smooth"
+                });
 
-heart.style.fontSize =
-    Math.random() * 20 + 15 + "px";
+            }
 
-heart.style.animationDuration =
-    Math.random() * 5 + 5 + "s";
-
-document.body.appendChild(heart);
-
-setTimeout(() => {
-    heart.remove();
-}, 10000);
-```
-
-}
-
-setInterval(createHeart, 700);
-
-// ======================
-// LOVE QUOTES ROTATOR
-// ======================
-
-const quotes = [
-
-```
-"You are my today and all of my tomorrows. ❤️",
-
-"Every love story is beautiful, but ours is my favorite. 💕",
-
-"You make ordinary days feel magical. ✨",
-
-"The best thing that ever happened to me was meeting you. ❤️",
-
-"I still fall for you every single day. 🌹"
-```
-
-];
-
-const quoteBox = document.querySelector(".quote-box p");
-
-let quoteIndex = 0;
-
-if (quoteBox) {
-
-```
-setInterval(() => {
-
-    quoteIndex++;
-
-    if (quoteIndex >= quotes.length) {
-        quoteIndex = 0;
-    }
-
-    quoteBox.style.opacity = 0;
-
-    setTimeout(() => {
-
-        quoteBox.textContent =
-            quotes[quoteIndex];
-
-        quoteBox.style.opacity = 1;
-
-    }, 400);
-
-}, 4000);
-```
-
-}
-
-// ======================
-// TYPING EFFECT
-// ======================
-
-const typingElement =
-document.querySelector(".typing-text");
-
-const typingMessage =
-"Happy Birthday my love. Thank you for every smile, every laugh, and every beautiful memory we've shared together. ❤️";
-
-if (typingElement) {
-
-```
-typingElement.innerHTML = "";
-
-let i = 0;
-
-function typeWriter() {
-
-    if (i < typingMessage.length) {
-
-        typingElement.innerHTML +=
-            typingMessage.charAt(i);
-
-        i++;
-
-        setTimeout(typeWriter, 45);
-
-    }
-
-}
-
-typeWriter();
-```
-
-}
-
-// ======================
-// HERO BUTTON
-// ======================
-
-const startBtn = document.getElementById("startBtn");
-
-if (startBtn) {
-
-```
-startBtn.addEventListener("click", () => {
-
-    const firstSection =
-        document.getElementById("journey1");
-
-    if (firstSection) {
-
-        firstSection.scrollIntoView({
-            behavior: "smooth"
         });
 
     }
 
-});
-```
+    // ======================
+    // SURPRISE GIFT BUTTON FIXED
+    // ======================
 
-}
+    const surpriseBtn = document.getElementById("surpriseBtn");
+    const surpriseMessage = document.getElementById("surpriseMessage");
+
+    if (surpriseBtn && surpriseMessage) {
+
+        surpriseBtn.addEventListener("click", () => {
+
+            surpriseMessage.classList.remove("hidden");
+
+            surpriseMessage.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+            // Confetti effect
+            if (typeof confetti !== "undefined") {
+
+                confetti({
+                    particleCount: 300,
+                    spread: 180,
+                    origin: { y: 0.6 }
+                });
+
+            }
+
+        });
+
+    }
+
+    // ======================
+    // FLOATING HEARTS (OPTIMIZED)
+    // ======================
+
+    function createHeart() {
+
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+
+        heart.innerHTML = "❤️";
+
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (Math.random() * 18 + 12) + "px";
+        heart.style.animationDuration = (Math.random() * 4 + 5) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 9000);
+
+    }
+
+    setInterval(createHeart, 900);
+
+    // ======================
+    // QUOTE ROTATOR (SAFE)
+    // ======================
+
+    const quotes = [
+        "You are my today and all of my tomorrows ❤️",
+        "Every love story is beautiful, but ours is my favorite 💕",
+        "You make my world feel soft and magical ✨",
+        "I still fall for you every single day 🌹",
+        "You are my forever person ❤️"
+    ];
+
+    const quoteBox = document.querySelector(".quote-box p");
+
+    let index = 0;
+
+    if (quoteBox) {
+
+        setInterval(() => {
+
+            index = (index + 1) % quotes.length;
+
+            quoteBox.style.opacity = "0";
+
+            setTimeout(() => {
+
+                quoteBox.textContent = quotes[index];
+                quoteBox.style.opacity = "1";
+
+            }, 400);
+
+        }, 4000);
+
+    }
+
+    // ======================
+    // FADE-IN ON SCROLL
+    // ======================
+
+    const elements = document.querySelectorAll(".fade-in");
+
+    const observer = new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            }
+
+        });
+
+    }, {
+        threshold: 0.2
+    });
+
+    elements.forEach(el => observer.observe(el));
+
+});
