@@ -34,9 +34,9 @@ Each section is designed to feel like a moment we are reliving together.
 
 This project includes a few of our special moments:
 
-* `pic1.jpg` – The beginning of our journey
-* `pic2.jpg` – The beauty that still amazes me every day
-* `pic3.jpg` – Our laughter, our comfort, our friendship
+* `pic1.jpeg` – The beginning of our journey
+* `pic2.jpeg` – The beauty that still amazes me every day
+* `pic3.jpeg` – Our laughter, our comfort, our friendship
 
 These are only a few — many more memories are still to come.
 
