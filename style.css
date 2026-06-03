@@ -69,6 +69,49 @@ body {
     }
 }
 
+.typing-text {
+    font-size: 1.2rem;
+    margin: 20px auto;
+    max-width: 700px;
+    min-height: 60px;
+}
+
+.hero-message {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 20px auto;
+}
+
+/* =======================
+   BUTTONS
+======================= */
+
+button {
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#playBtn,
+#startBtn,
+#surpriseBtn {
+
+    background: linear-gradient(45deg, #ff4d88, #ff2e63);
+    color: white;
+    padding: 14px 30px;
+    border-radius: 40px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 10px;
+    box-shadow: 0 10px 25px rgba(255, 50, 120, 0.3);
+}
+
+#playBtn:hover,
+#startBtn:hover,
+#surpriseBtn:hover {
+    transform: scale(1.08);
+}
+
 /* =======================
    JOURNEY SECTIONS
 ======================= */
@@ -109,8 +152,12 @@ body {
     border-radius: 25px;
 }
 
+.text h2 {
+    margin-bottom: 15px;
+}
+
 /* =======================
-   GALLERY (CENTERED FIX)
+   GALLERY (FIXED - NO CROPPING + CONTROLLED SIZE)
 ======================= */
 
 .gallery {
@@ -123,53 +170,34 @@ body {
     margin-bottom: 40px;
 }
 
-/* ✅ FIX: Center the film strip */
-.film-strip {
-    display: flex;
-    justify-content: center;   /* ⭐ KEY FIX */
-    align-items: center;
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 25px;
-
-    overflow-x: auto;
-    padding: 40px 10px;
-
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-
-    margin: 0 auto;            /* ⭐ centers container */
-    max-width: 100%;
+    max-width: 1000px;
+    margin: auto;
 }
 
-/* hide scrollbar */
-.film-strip::-webkit-scrollbar {
-    display: none;
-}
+/* ✅ FIXED IMAGE HANDLING (NO CROPPING, NO OVERSIZE) */
+.gallery-grid img {
+    width: 100%;
+    max-width: 320px;
+    height: 240px;
 
-/* images */
-.film-strip img {
-    height: 340px;
-    width: auto;
+    object-fit: contain;     /* prevents cropping */
+    display: block;
+    margin: 0 auto;
 
-    flex-shrink: 0;
-    scroll-snap-align: center;
-
-    border-radius: 25px;
-
-    object-fit: contain;
-    background: rgba(255,255,255,0.12);
-
+    background: rgba(255,255,255,0.10);
     padding: 10px;
 
-    box-shadow: 0 15px 40px rgba(0,0,0,0.35);
-
-    cursor: pointer;
-
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    transition: 0.4s ease;
 }
 
-.film-strip img:hover {
-    transform: scale(1.06);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+.gallery-grid img:hover {
+    transform: scale(1.05);
 }
 
 /* =======================
@@ -199,6 +227,16 @@ body {
     padding: 120px 10%;
 }
 
+.final h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.final p {
+    max-width: 800px;
+    margin: 15px auto;
+}
+
 /* Surprise message */
 #surpriseMessage {
     margin-top: 30px;
@@ -206,45 +244,6 @@ body {
     background: rgba(255,255,255,0.15);
     border-radius: 25px;
     backdrop-filter: blur(12px);
-}
-
-/* =======================
-   LIGHTBOX
-======================= */
-
-.lightbox {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-
-    background: rgba(0,0,0,0.88);
-
-    display: none;
-    justify-content: center;
-    align-items: center;
-
-    z-index: 99999;
-
-    padding: 20px;
-}
-
-.lightbox img {
-    max-width: 92%;
-    max-height: 92%;
-    border-radius: 20px;
-    box-shadow: 0 25px 70px rgba(0,0,0,0.6);
-}
-
-.close-btn {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 42px;
-    color: white;
-    cursor: pointer;
-    font-weight: bold;
 }
 
 /* =======================
@@ -273,6 +272,31 @@ body {
 }
 
 /* =======================
+   FADE ANIMATION
+======================= */
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s ease;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =======================
+   FOOTER
+======================= */
+
+footer {
+    text-align: center;
+    padding: 30px;
+    background: rgba(0,0,0,0.2);
+}
+
+/* =======================
    MOBILE FIX
 ======================= */
 
@@ -287,12 +311,21 @@ body {
         text-align: center;
     }
 
+    .text {
+        width: 100%;
+    }
+
     .content img {
         max-width: 90%;
         height: auto;
     }
 
-    .film-strip img {
-        height: 260px;
+    .gallery h2 {
+        font-size: 2rem;
+    }
+
+    .gallery-grid img {
+        height: 220px;
+        max-width: 90%;
     }
 }
