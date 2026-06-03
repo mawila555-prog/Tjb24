@@ -1,124 +1,244 @@
-document.addEventListener("DOMContentLoaded", () => {
+// ======================
+// MUSIC PLAYER
+// ======================
+
+const music = document.getElementById("bgMusic");
+const playBtn = document.getElementById("playBtn");
+
+if (playBtn && music) {
 
 ```
-const startBtn = document.getElementById("startBtn");
-const bgMusic = document.getElementById("bgMusic");
+playBtn.addEventListener("click", () => {
+
+    if (music.paused) {
+
+        music.play();
+
+        playBtn.innerHTML = "⏸ Pause Our Song";
+        playBtn.classList.add("playing");
+
+    } else {
+
+        music.pause();
+
+        playBtn.innerHTML = "▶ Play Our Song";
+        playBtn.classList.remove("playing");
+
+    }
+
+});
+```
+
+}
+
+// ======================
+// FADE-IN ANIMATION
+// ======================
+
+const fadeElements = document.querySelectorAll(".fade-in");
+
+const observer = new IntersectionObserver(
+
+```
+(entries) => {
+
+    entries.forEach((entry) => {
+
+        if (entry.isIntersecting) {
+
+            entry.target.classList.add("show");
+
+        }
+
+    });
+
+},
+
+{
+    threshold: 0.2
+}
+```
+
+);
+
+fadeElements.forEach((el) => observer.observe(el));
+
+// ======================
+// SURPRISE BUTTON
+// ======================
+
 const surpriseBtn = document.getElementById("surpriseBtn");
 const surpriseMessage = document.getElementById("surpriseMessage");
 
-// =========================
-// START JOURNEY BUTTON
-// =========================
-startBtn.addEventListener("click", () => {
-
-    // Play music (must be triggered by user click)
-    if (bgMusic) {
-        bgMusic.volume = 0.5;
-        bgMusic.play().catch(err => {
-            console.log("Autoplay blocked:", err);
-        });
-    }
-
-    // Scroll to first journey
-    document.getElementById("journey1").scrollIntoView({
-        behavior: "smooth"
-    });
-
-    // Optional: small visual effect
-    startFloatingHearts();
-});
-
-
-// =========================
-// SURPRISE BUTTON
-// =========================
 if (surpriseBtn) {
-    surpriseBtn.addEventListener("click", () => {
 
-        surpriseMessage.classList.toggle("hidden");
+```
+surpriseBtn.addEventListener("click", () => {
 
-        // Add extra celebration effect
-        createBurstHearts();
+    surpriseMessage.classList.remove("hidden");
 
+    surpriseMessage.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
     });
-}
 
+    if (typeof confetti !== "undefined") {
 
-// =========================
-// SCROLL ANIMATIONS
-// =========================
-const sections = document.querySelectorAll(".journey, .final");
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-        }
-    });
-}, {
-    threshold: 0.2
-});
-
-sections.forEach(section => {
-    section.classList.add("hidden-section");
-    observer.observe(section);
-});
-
-
-// =========================
-// FLOATING HEARTS EFFECT
-// =========================
-function startFloatingHearts() {
-    setInterval(() => {
-        const heart = document.createElement("div");
-        heart.innerHTML = "❤️";
-        heart.classList.add("floating-heart");
-
-        document.body.appendChild(heart);
-
-        heart.style.left = Math.random() * 100 + "vw";
-        heart.style.fontSize = (Math.random() * 20 + 10) + "px";
-
-        setTimeout(() => {
-            heart.remove();
-        }, 4000);
-
-    }, 800);
-}
-
-
-// =========================
-// BURST HEARTS (SURPRISE)
-// =========================
-function createBurstHearts() {
-    for (let i = 0; i < 20; i++) {
-
-        const heart = document.createElement("div");
-        heart.innerHTML = "💖";
-        heart.classList.add("burst-heart");
-
-        document.body.appendChild(heart);
-
-        heart.style.left = (window.innerWidth / 2) + "px";
-        heart.style.top = (window.innerHeight / 2) + "px";
-
-        const angle = Math.random() * 360;
-        const distance = Math.random() * 200;
-
-        const x = Math.cos(angle) * distance;
-        const y = Math.sin(angle) * distance;
-
-        heart.animate([
-            { transform: "translate(0,0)", opacity: 1 },
-            { transform: `translate(${x}px, ${y}px)`, opacity: 0 }
-        ], {
-            duration: 1000,
-            easing: "ease-out"
+        confetti({
+            particleCount: 250,
+            spread: 180,
+            origin: { y: 0.6 }
         });
 
-        setTimeout(() => heart.remove(), 1000);
     }
-}
+
+});
 ```
 
+}
+
+// ======================
+// FLOATING HEARTS
+// ======================
+
+function createHeart() {
+
+```
+const heart = document.createElement("div");
+
+heart.innerHTML = "❤️";
+heart.classList.add("heart");
+
+heart.style.left = Math.random() * 100 + "vw";
+
+heart.style.fontSize =
+    Math.random() * 20 + 15 + "px";
+
+heart.style.animationDuration =
+    Math.random() * 5 + 5 + "s";
+
+document.body.appendChild(heart);
+
+setTimeout(() => {
+    heart.remove();
+}, 10000);
+```
+
+}
+
+setInterval(createHeart, 700);
+
+// ======================
+// LOVE QUOTES ROTATOR
+// ======================
+
+const quotes = [
+
+```
+"You are my today and all of my tomorrows. ❤️",
+
+"Every love story is beautiful, but ours is my favorite. 💕",
+
+"You make ordinary days feel magical. ✨",
+
+"The best thing that ever happened to me was meeting you. ❤️",
+
+"I still fall for you every single day. 🌹"
+```
+
+];
+
+const quoteBox = document.querySelector(".quote-box p");
+
+let quoteIndex = 0;
+
+if (quoteBox) {
+
+```
+setInterval(() => {
+
+    quoteIndex++;
+
+    if (quoteIndex >= quotes.length) {
+        quoteIndex = 0;
+    }
+
+    quoteBox.style.opacity = 0;
+
+    setTimeout(() => {
+
+        quoteBox.textContent =
+            quotes[quoteIndex];
+
+        quoteBox.style.opacity = 1;
+
+    }, 400);
+
+}, 4000);
+```
+
+}
+
+// ======================
+// TYPING EFFECT
+// ======================
+
+const typingElement =
+document.querySelector(".typing-text");
+
+const typingMessage =
+"Happy Birthday my love. Thank you for every smile, every laugh, and every beautiful memory we've shared together. ❤️";
+
+if (typingElement) {
+
+```
+typingElement.innerHTML = "";
+
+let i = 0;
+
+function typeWriter() {
+
+    if (i < typingMessage.length) {
+
+        typingElement.innerHTML +=
+            typingMessage.charAt(i);
+
+        i++;
+
+        setTimeout(typeWriter, 45);
+
+    }
+
+}
+
+typeWriter();
+```
+
+}
+
+// ======================
+// HERO BUTTON
+// ======================
+
+const startBtn = document.getElementById("startBtn");
+
+if (startBtn) {
+
+```
+startBtn.addEventListener("click", () => {
+
+    const firstSection =
+        document.getElementById("journey1");
+
+    if (firstSection) {
+
+        firstSection.scrollIntoView({
+            behavior: "smooth"
+        });
+
+    }
+
 });
+```
+
+}
