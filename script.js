@@ -1,76 +1,124 @@
-const startBtn = document.getElementById("startBtn");
-const music = document.getElementById("bgMusic");
-const surpriseBtn = document.getElementById("surpriseBtn");
-const secretMessage = document.getElementById("secretMessage");
+document.addEventListener("DOMContentLoaded", () => {
 
+```
+const startBtn = document.getElementById("startBtn");
+const bgMusic = document.getElementById("bgMusic");
+const surpriseBtn = document.getElementById("surpriseBtn");
+const surpriseMessage = document.getElementById("surpriseMessage");
+
+// =========================
+// START JOURNEY BUTTON
+// =========================
 startBtn.addEventListener("click", () => {
 
-```
-music.play();
+    // Play music (must be triggered by user click)
+    if (bgMusic) {
+        bgMusic.volume = 0.5;
+        bgMusic.play().catch(err => {
+            console.log("Autoplay blocked:", err);
+        });
+    }
 
-document.querySelector(".journey")
-    .scrollIntoView({
+    // Scroll to first journey
+    document.getElementById("journey1").scrollIntoView({
         behavior: "smooth"
     });
-```
 
+    // Optional: small visual effect
+    startFloatingHearts();
 });
 
-surpriseBtn.addEventListener("click", () => {
 
-```
-secretMessage.style.display = "block";
+// =========================
+// SURPRISE BUTTON
+// =========================
+if (surpriseBtn) {
+    surpriseBtn.addEventListener("click", () => {
 
-createHeartBurst();
-```
+        surpriseMessage.classList.toggle("hidden");
 
+        // Add extra celebration effect
+        createBurstHearts();
+
+    });
+}
+
+
+// =========================
+// SCROLL ANIMATIONS
+// =========================
+const sections = document.querySelectorAll(".journey, .final");
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+        }
+    });
+}, {
+    threshold: 0.2
 });
 
-function createHeartBurst() {
+sections.forEach(section => {
+    section.classList.add("hidden-section");
+    observer.observe(section);
+});
 
-```
-for(let i = 0; i < 25; i++){
 
-    const heart = document.createElement("div");
+// =========================
+// FLOATING HEARTS EFFECT
+// =========================
+function startFloatingHearts() {
+    setInterval(() => {
+        const heart = document.createElement("div");
+        heart.innerHTML = "❤️";
+        heart.classList.add("floating-heart");
 
-    heart.classList.add("heart");
+        document.body.appendChild(heart);
 
-    heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (Math.random() * 20 + 10) + "px";
 
-    heart.style.left =
-        Math.random() * window.innerWidth + "px";
+        setTimeout(() => {
+            heart.remove();
+        }, 4000);
 
-    heart.style.bottom = "0px";
+    }, 800);
+}
 
-    document.body.appendChild(heart);
 
-    setTimeout(() => {
-        heart.remove();
-    }, 4000);
+// =========================
+// BURST HEARTS (SURPRISE)
+// =========================
+function createBurstHearts() {
+    for (let i = 0; i < 20; i++) {
+
+        const heart = document.createElement("div");
+        heart.innerHTML = "💖";
+        heart.classList.add("burst-heart");
+
+        document.body.appendChild(heart);
+
+        heart.style.left = (window.innerWidth / 2) + "px";
+        heart.style.top = (window.innerHeight / 2) + "px";
+
+        const angle = Math.random() * 360;
+        const distance = Math.random() * 200;
+
+        const x = Math.cos(angle) * distance;
+        const y = Math.sin(angle) * distance;
+
+        heart.animate([
+            { transform: "translate(0,0)", opacity: 1 },
+            { transform: `translate(${x}px, ${y}px)`, opacity: 0 }
+        ], {
+            duration: 1000,
+            easing: "ease-out"
+        });
+
+        setTimeout(() => heart.remove(), 1000);
+    }
 }
 ```
 
-}
-
-setInterval(() => {
-
-```
-const heart = document.createElement("div");
-
-heart.classList.add("heart");
-
-heart.innerHTML = "❤️";
-
-heart.style.left =
-    Math.random() * window.innerWidth + "px";
-
-heart.style.bottom = "-20px";
-
-document.body.appendChild(heart);
-
-setTimeout(() => {
-    heart.remove();
-}, 4000);
-```
-
-}, 1500);
+});
