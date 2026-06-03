@@ -1,85 +1,82 @@
-# ❤️ Happy Birthday My Love
+# ❤️ Happy Birthday My Love ❤️
 
-This is a small project I created to celebrate someone who means the world to me.
+A special birthday website created with love, memories, and a little bit of code.
 
-It is not just a website — it is a journey through some of my favorite memories with you, and a reminder of how grateful I am for your presence in my life.
+## 🌹 About
 
----
+This website was made as a birthday surprise for someone very special. It combines photos, music, memories, and heartfelt messages into a romantic interactive experience.
 
-## 💫 About This Project
+## ✨ Features
 
-This experience was built to take you through our story:
+* 🎂 Beautiful birthday-themed design
+* ❤️ Floating heart animations
+* 🎵 Play/Pause button for your special song
+* 📸 Memory gallery with personal photos
+* 💌 Love notes and heartfelt messages
+* 🎁 Surprise birthday gift section
+* 🎉 Confetti celebration effect
+* ✨ Smooth scrolling and animations
+* 📱 Mobile-friendly layout
 
-* ✨ How we met and what it meant to me
-* 💖 How you continue to inspire and amaze me
-* 😂 The joy and laughter we share together
-* 🙏 Gratitude for the blessing of having you in my life
-* 🌍 The future we are building together
+## 📂 Project Files
 
-Each section is designed to feel like a moment we are reliving together.
+```text
+.
+├── index.html
+├── style.css
+├── script.js
+├── our-song.mp3
+├── pic1.jpeg
+├── pic2.jpeg
+└── pic3.jpeg
+```
 
----
+## 🚀 Live Website
 
-## 🎧 How To Experience It
+Once GitHub Pages is enabled, your website will be available at:
 
-1. Click **“Start Our Journey ❤️”**
-2. Allow the music to play
-3. Scroll slowly through each memory
-4. Take your time — every section is written for you
-5. Reach the end for a final surprise 💝
+```text
+https://mawila555-prog.github.io/tjb24/
+```
 
----
+## 📸 Photos
 
-## 📸 Memories Used
+The website uses:
 
-This project includes a few of our special moments:
+* `pic1.jpeg`
+* `pic2.jpeg`
+* `pic3.jpeg`
 
-* `pic1.jpeg` – The beginning of our journey
-* `pic2.jpeg` – The beauty that still amazes me every day
-* `pic3.jpeg` – Our laughter, our comfort, our friendship
+Replace these with your own memories if desired.
 
-These are only a few — many more memories are still to come.
+## 🎵 Music
 
----
+The music player uses:
 
-## 💌 A Personal Note
+```text
+our-song.mp3
+```
 
-If you are reading this, I just want you to know:
+Place the file in the root directory of the repository.
 
-You are deeply loved, appreciated, and cherished.
+## ⚙️ GitHub Pages Setup
 
-Thank you for being my peace, my joy, and my favorite person.
+1. Open the repository **tjb24**
+2. Go to **Settings**
+3. Click **Pages**
+4. Under **Source**, choose:
 
-I thank God for you every day, and I always will.
+   * Deploy from a branch
+   * Branch: `main`
+   * Folder: `/ (root)`
+5. Click **Save**
 
----
+GitHub will publish your website automatically.
 
-## 🌱 Future Plans
+## ❤️ Dedicated To
 
-This is just the beginning of our story.
+The most beautiful part of my life.
 
-There are still many memories to create:
+Happy Birthday ❤️
 
-* More adventures ✈️
-* More laughter 😂
-* More growth 🌱
-* More love ❤️
-
-And I look forward to all of it with you.
-
----
-
-## ❤️ Happy Birthday
-
-May this new year of your life bring you:
-
-* Peace in your heart
-* Joy in your days
-* Strength in your journey
-* And endless love surrounding you
-
-You deserve the very best of everything.
-
----
-
-**Happy Birthday, my love ❤️**
+May your day be filled with happiness, laughter, love, and unforgettable memories.
