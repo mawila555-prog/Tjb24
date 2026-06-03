@@ -1,40 +1,40 @@
-# 🎂 Happy Birthday ❤️
+# ❤️ Happy Birthday My Love ❤️
 
-A small project dedicated to the most amazing person in my life.
+A small website dedicated to someone who has made my life brighter, happier, and more meaningful.
 
-## What's Inside?
+## Our Journey
 
-This website is a collection of some of my favorite memories with you:
+This website tells a small part of our story:
 
-* ❤️ How We Met
-* 📸 Our Favorite Adventures
-* ✈️ Special Trips
-* 🎁 Hidden Surprises
-* 💌 A Birthday Letter
+* ❤️ The day we met
+* 👀 The smile and eyes that still take my breath away
+* 😄 The joy of being completely ourselves together
+* 🎂 A birthday message filled with love and gratitude
+
+## Features
+
+* Background music
+* Smooth scrolling journey
+* Photo memories
+* Hidden surprise message
+* Confetti celebration
 
 ## Release Notes
 
 ### v1.0.0
 
-* Initial commit: We met.
+Initial commit: Our paths crossed ❤️
 
 ### v2.0.0
 
-* Added countless laughs.
-* Improved happiness metrics.
-* Fixed bad-day bugs with hugs.
+Added laughter, adventures, and unforgettable memories.
 
 ### v3.0.0
 
-* Birthday Edition 🎂
-* Added new memories.
-* Added infinite love support ❤️
+Birthday Edition 🎂
 
-## Future Roadmap
+Happy Birthday, my love.
 
-* More adventures
-* More photos
-* More memories
-* Forever
+Thank you for every smile, every memory, and every moment.
 
-Happy Birthday ❤️
+❤️
