@@ -46,75 +46,47 @@ body {
     font-family: 'Dancing Script', cursive;
     font-size: 4.5rem;
     margin-bottom: 20px;
+
     text-shadow:
         0 0 10px rgba(255,255,255,0.8),
         0 0 25px rgba(255,105,180,0.8),
         0 0 50px rgba(255,20,147,0.8);
+
     animation: glow 2s infinite alternate;
 }
 
+@keyframes glow {
+    from {
+        text-shadow:
+            0 0 10px rgba(255,255,255,0.8),
+            0 0 20px rgba(255,105,180,0.6);
+    }
+
+    to {
+        text-shadow:
+            0 0 20px rgba(255,255,255,1),
+            0 0 40px rgba(255,105,180,1),
+            0 0 80px rgba(255,20,147,1);
+    }
+}
+
+.typing-text {
+    font-size: 1.2rem;
+    margin: 20px auto;
+    max-width: 700px;
+    min-height: 60px;
+}
+
+.hero-message {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 20px auto;
+}
+
 /* =======================
-   GALLERY FIX (IMPORTANT PART)
+   BUTTONS
 ======================= */
 
-.gallery {
-    padding: 100px 10%;
-    text-align: center;
-}
-
-.gallery h2 {
-    font-size: 2.8rem;
-    margin-bottom: 40px;
-}
-
-/* ✅ FIX: CENTER FILM STRIP UNDER HEADING */
-.film-strip {
-    display: inline-flex;   /* changed from flex */
-    gap: 25px;
-
-    overflow-x: auto;
-    padding: 40px 10px;
-
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-
-    max-width: 100%;
-    margin: 0 auto;
-}
-
-/* hide scrollbar */
-.film-strip::-webkit-scrollbar {
-    display: none;
-}
-
-/* images (kept consistent sizing) */
-.film-strip img {
-    width: 320px;
-    height: 420px;
-
-    flex-shrink: 0;
-    scroll-snap-align: center;
-
-    border-radius: 25px;
-    object-fit: cover;
-
-    box-shadow: 0 15px 40px rgba(0,0,0,0.35);
-
-    cursor: pointer;
-
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.film-strip img:hover {
-    transform: scale(1.06);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.45);
-}
-
-/* =======================
-   REST OF YOUR ORIGINAL CSS (UNCHANGED)
-   ======================= */
-
-/* Buttons */
 button {
     border: none;
     cursor: pointer;
@@ -140,7 +112,10 @@ button {
     transform: scale(1.08);
 }
 
-/* Journey */
+/* =======================
+   JOURNEY SECTIONS
+======================= */
+
 .journey {
     padding: 100px 10%;
 }
@@ -169,7 +144,95 @@ button {
     transform: scale(1.05);
 }
 
-/* Quotes */
+.text {
+    flex: 1;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(12px);
+    padding: 30px;
+    border-radius: 25px;
+}
+
+.text h2 {
+    margin-bottom: 15px;
+}
+
+/* =======================
+   GALLERY
+======================= */
+
+.gallery {
+    padding: 100px 10%;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gallery h2 {
+    font-size: 2.8rem;
+    margin-bottom: 40px;
+
+    text-shadow:
+        0 0 10px rgba(255,255,255,0.7),
+        0 0 25px rgba(255,105,180,0.5);
+}
+
+.film-strip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 25px;
+
+    width: 100%;
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    padding: 20px 10px 40px;
+
+    overflow-x: auto;
+
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.film-strip::-webkit-scrollbar {
+    display: none;
+}
+
+.film-strip img {
+    width: 320px;
+    height: 420px;
+
+    flex-shrink: 0;
+    scroll-snap-align: center;
+
+    border-radius: 25px;
+
+    object-fit: cover;
+
+    box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.film-strip img:hover {
+    transform: translateY(-8px) scale(1.05);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,0.45);
+}
+
+/* =======================
+   QUOTES
+======================= */
+
 .quotes {
     padding: 100px 10%;
     text-align: center;
@@ -184,7 +247,10 @@ button {
     backdrop-filter: blur(10px);
 }
 
-/* Final */
+/* =======================
+   FINAL SECTION
+======================= */
+
 .final {
     text-align: center;
     padding: 120px 10%;
@@ -200,7 +266,18 @@ button {
     margin: 15px auto;
 }
 
-/* Lightbox */
+#surpriseMessage {
+    margin-top: 30px;
+    padding: 30px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 25px;
+    backdrop-filter: blur(12px);
+}
+
+/* =======================
+   LIGHTBOX
+======================= */
+
 .lightbox {
     position: fixed;
     top: 0;
@@ -222,7 +299,71 @@ button {
     box-shadow: 0 25px 70px rgba(0,0,0,0.6);
 }
 
-/* Mobile */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 42px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* =======================
+   FLOATING HEARTS
+======================= */
+
+.heart {
+    position: fixed;
+    bottom: -20px;
+    color: #ff4d88;
+    font-size: 18px;
+    animation: floatUp linear forwards;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(-120vh);
+        opacity: 0;
+    }
+}
+
+/* =======================
+   FADE ANIMATION
+======================= */
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s ease;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =======================
+   FOOTER
+======================= */
+
+footer {
+    text-align: center;
+    padding: 30px;
+    background: rgba(0,0,0,0.2);
+}
+
+/* =======================
+   MOBILE FIX
+======================= */
+
 @media (max-width: 900px) {
 
     .main-title {
@@ -234,9 +375,23 @@ button {
         text-align: center;
     }
 
+    .text {
+        width: 100%;
+    }
+
     .content img {
         max-width: 90%;
         height: auto;
+    }
+
+    .gallery h2 {
+        font-size: 2rem;
+    }
+
+    .film-strip {
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 20px;
     }
 
     .film-strip img {
