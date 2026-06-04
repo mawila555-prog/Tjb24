@@ -1,4 +1,4 @@
-/* =======================
+ /* =======================
    RESET
 ======================= */
 
@@ -157,7 +157,7 @@ button {
 }
 
 /* =======================
-   GALLERY (FIXED - NO CROPPING + CONTROLLED SIZE)
+   GALLERY (ROMANTIC FILM STRIP)
 ======================= */
 
 .gallery {
@@ -170,34 +170,47 @@ button {
     margin-bottom: 40px;
 }
 
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+/* Film strip container */
+.film-strip {
+    display: flex;
     gap: 25px;
-    max-width: 1000px;
-    margin: auto;
+    overflow-x: auto;
+    padding: 40px 10px;
+
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
 }
 
-/* ✅ FIXED IMAGE HANDLING (NO CROPPING, NO OVERSIZE) */
-.gallery-grid img {
-    width: 100%;
-    max-width: 320px;
-    height: 240px;
+/* hide scrollbar */
+.film-strip::-webkit-scrollbar {
+    display: none;
+}
 
-    object-fit: contain;     /* prevents cropping */
-    display: block;
-    margin: 0 auto;
+/* images in film strip */
+.film-strip img {
+    height: 340px;
+    width: auto;
 
-    background: rgba(255,255,255,0.10);
+    flex-shrink: 0;
+    scroll-snap-align: center;
+
+    border-radius: 25px;
+
+    object-fit: contain;
+    background: rgba(255,255,255,0.12);
+
     padding: 10px;
 
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    transition: 0.4s ease;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+
+    cursor: pointer;
+
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-.gallery-grid img:hover {
-    transform: scale(1.05);
+.film-strip img:hover {
+    transform: scale(1.06);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.45);
 }
 
 /* =======================
@@ -244,6 +257,49 @@ button {
     background: rgba(255,255,255,0.15);
     border-radius: 25px;
     backdrop-filter: blur(12px);
+}
+
+/* =======================
+   LIGHTBOX (FULL IMAGE PREVIEW)
+======================= */
+
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.88);
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 99999;
+
+    padding: 20px;
+}
+
+.lightbox img {
+    max-width: 92%;
+    max-height: 92%;
+
+    border-radius: 20px;
+
+    box-shadow: 0 25px 70px rgba(0,0,0,0.6);
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+
+    font-size: 42px;
+    color: white;
+    cursor: pointer;
+
+    font-weight: bold;
 }
 
 /* =======================
@@ -324,8 +380,7 @@ footer {
         font-size: 2rem;
     }
 
-    .gallery-grid img {
-        height: 220px;
-        max-width: 90%;
+    .film-strip img {
+        height: 260px;
     }
 }
